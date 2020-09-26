@@ -25,7 +25,7 @@ SECRET_KEY = '&(r_-wi6&sa6xng(o1r3$z=o+1=0(irq=kmb4k-&7qs!v40w@u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'code_hackathon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
