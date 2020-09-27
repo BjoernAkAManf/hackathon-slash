@@ -11,11 +11,12 @@ class Interest(models.Model):
 
 class Foundation(models.Model):
     name = models.CharField(max_length=200)
+    label = models.CharField(max_length=20)
     description = models.CharField(max_length=1000)
     interests = models.ManyToManyField(Interest)
     location = models.CharField(max_length=200)
     iban = models.CharField(max_length=40)
-    image = models.CharField(max_length=100)
+    image = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.name

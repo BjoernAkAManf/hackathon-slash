@@ -1,4 +1,6 @@
+import random
 import os
+import math
 import json
 from django.core import serializers
 from django.shortcuts import render
@@ -43,18 +45,14 @@ def zzz(z):
 class Match(View):
     def get(self, request, *args, **kwargs):
         user = Profile.objects.get(uuid=kwargs['id'])
-        try:
-            v = json.loads(request.body.decode('utf-8'))
-            if not isinstance(v, list):
-                return HttpResponse('Error 2')
-            z = Interest.objects.filter(profile__exact=user)
-            x = Foundation.objects.filter (interests__in=z).distinct()
-            # .all().filter(name__exact="X").values()
-            x = list(map(zzz, x))
-            print(x)
-            return JsonResponse(x, safe=False)
-        except:
-            return HttpResponse('Error')
+        #try:
+        z = Interest.objects.filter(profile__exact=user)
+        x = Foundation.objects.filter (interests__in=z).distinct()
+        # Hardcoded 15
+        x = list(map(zzz, x))
+        return JsonResponse(random.sample(x, min(15, len(x))), safe=False)
+        #except:
+        #    return HttpResponse('Error')
             # error
             # return JsonResponse(v, safe=False)
 
