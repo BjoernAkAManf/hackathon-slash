@@ -1,3 +1,5 @@
 applications:
     - name: Charityswipe
       memory: 128M
+      env:
+        DISABLE_COLLECTSTATIC: '1'

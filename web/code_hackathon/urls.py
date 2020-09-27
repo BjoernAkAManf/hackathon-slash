@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from charityswipe.views import Interests, Match, Profiles, ProfileInterests, export
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('profile', Profiles.as_view()),
+    path('profile/<id>', ProfileInterests.as_view()),
+    path('profile/<id>/match', Match.as_view()),
+    path('interests/', Interests.as_view()),
+    path('export/', export),
 ]
